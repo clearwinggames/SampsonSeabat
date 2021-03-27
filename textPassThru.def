@@ -1,0 +1,2 @@
+TextPassThru{$Text}[rn]
+Write(Text);
