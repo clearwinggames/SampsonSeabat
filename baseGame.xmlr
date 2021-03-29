@@ -1,0 +1,148 @@
+<Game Name='baseGame41'>
+<SceneContexts>
+<SceneContext>
+<MyLogic>
+<OnUpdate>
+<SceneContextProceduralStatements>
+<SceneContextProceduralStatement MyScript='[%= transitionX %]'>
+</SceneContextProceduralStatement>
+</SceneContextProceduralStatements>
+</OnUpdate>
+</MyLogic>
+<Scenes>
+<Scene>
+<Entities>
+<Entity Name='JumpMan' X='96' Y='96' W='32' H='64' MyColor='F00'>
+<MyImage CycleLength='12'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+<MyLogic>
+<OnUpdate>
+<ProceduralStatement Name='gravityScript' MyScript='[%= gravity %]' LocalData='^^{**isInAir**:false}^^'>
+</ProceduralStatement>
+</OnUpdate>
+<MyInputs>
+<InputHandler KeyPredicate='left' MyScript='[%= moveLeft4 %]'>
+</InputHandler>
+<InputHandler KeyPredicate='right' MyScript='[%= moveRight4 %]'>
+</InputHandler>
+<InputHandler Name='jumpKey' KeyPredicate='space' MyScript='if(!this.LocalData.isInAir(this).isInAir [2a] this.me().MY === 0) { this.me().MY = -24; this.LocalData.isInAir(this).isInAir=true; }' LocalData='^^{**isInAir**:function(ih) { return find(ih.me().MyLogic.OnUpdate, **gravityScript**).LocalData; } }^^'>
+</InputHandler>
+</MyInputs>
+</MyLogic>
+</Entity>
+<Entity X='448' Y='384' W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+<Entity X='768' Y='384' W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+<Entity X='1088' Y='384' W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+<Entity X='1408' Y='384' W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+<Entity X='288' Y='608' W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+<Entity X='608' Y='608' W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+<Entity X='928' Y='608' W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+<Entity X='1248' Y='608' W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+<Entity Name='Other' X='72' Y='480' W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+</Entities>
+</Scene>
+<Scene>
+<Entities>
+<Entity Name='Other2' X='320' Y='120' W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+</Entities>
+</Scene>
+</Scenes>
+</SceneContext>
+</SceneContexts>
+</Game>

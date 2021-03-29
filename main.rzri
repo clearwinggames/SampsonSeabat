@@ -1,0 +1,238 @@
+<Game Name='sampsonSeabat'>
+
+<AOPEngine>
+<AdviceBlocks>
+<AdviceBlock Selector='plat'>
+<Advices>
+<Advice PropName='MyImage'>
+</Advice>
+</Advices>
+</AdviceBlock>
+</AdviceBlocks>
+</AOPEngine>
+
+<SceneContexts>
+<SceneContext>
+<MyLogic>
+<OnUpdate>
+<SceneContextProceduralStatements>
+<SceneContextProceduralStatement MyScript='[%= transitionX %]'>
+</SceneContextProceduralStatement>
+</SceneContextProceduralStatements>
+</OnUpdate>
+</MyLogic>
+
+<Scenes>
+
+<Scene>
+<!-- Scene One -->
+
+<TileGrids>
+<TileGrid SkipDraw='false' X='0' Y='0' TW='128' TH='96' MainGrid='true' DelimitedGrid='0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0;' EntityNameCSVKey='tileExample'>
+</TileGrid>
+</TileGrids>
+
+<Entities>
+
+<Entity Name='tileExample' Disabled='true'>
+<PatternedImageBox FirstColor='FF7F00' SecondColor='00FF7F' />
+</Entity>
+
+Write("<VariableDGrid EntityName='someEntXXX4' HexKey='007FFF,005FCF,003F9F,001F5F' X='224' Y='16' W='32' H='32' DGridName='StripedImage W=\"32\" H=\"32\" StripeCt=\"8\" ColorCt=\"4\"' />");
+
+Write("<ColorCycledImage CycleLength='2' Name='someXEntX' NotWorldLevel='true' CSVKey='006FAF,007FCF,008FEF,009FFF' X='584' Y='0' W='180' H='1200' DGridName='StripedImage W=\"32\" H=\"1200\" StripeCt=\"600\" ColorCt=\"4\"' />");
+
+<!-- SteadyJumpMan is a local resource (component / transdef / .tdef), most others are built-in or from content packs -->
+for(int i = 0; i < 1; i++) 
+{
+<SteadyJumpMan Omnipresent='true' X={(96 + (i * 48))} Y='96' W='32' H='64' Thrust='24' />
+}
+
+<!-- fushigi hub is builtin I think?  But it's random.  Every time you build the game it builds something different. -->
+if (false == true) 
+{ // it isn't! Ha
+Write("<FushigiHub TW='20' TH='20' X='320' Y='320' TileInfo='EntityShell W=\"16\" H=\"16\"' />");
+}
+
+<LeftrightPlat X='384' Y='256' W='96' H='32' Speed='1' Cycles='128' />
+
+<UpdownPlat X='512' Y='-128' W='96' H='32' Speed='1' Cycles='128' />
+<UpdownPlat X='960' Y='384' W='96' H='32' Speed='2' Cycles='96' />
+
+<Entity Name='someName' X='4' Y='4' W='48' H='48'>
+<PatternedImageBox FirstColor='FFFF00' SecondColor='FF00FF' />
+</Entity>
+
+<Entity Name='otherObjectName' X='384' Y='4' W='48' H='48'>
+<SampleImageBox CycleCt='18' />
+</Entity>
+
+<VariableDGrid EntityName='someEntX' HexKey='FF0000,0000FF' X='96' Y='16' W='32' H='32' DGridName='SampleNamedDGrid' />
+<VariableDGrid EntityName='someEntXX2' HexKey='FF0000,00FF00,FF00FF' X='160' Y='16' W='32' H='32' DGridName='grayscaletestPNGTDef' />
+
+  <Entity Name='someNonGSTest'>
+    <MyImage>
+      <ImageFrames>
+        <ImageFrame DelimitedGrid='0,0;1,1' HexCSVKey='FF0000,00FF00'>
+          
+        </ImageFrame>
+      </ImageFrames>
+    </MyImage>
+  </Entity>
+
+  <VariableDGrid EntityName='testStairs' HexKey='000000FF,FF000000,9F7F3FFF,9A7A3AFF,977737FF,937333FF,3F3F3FFF' X='256' Y='288' W='32' H='32' DGridName='grayscaleStairsUp' />
+               
+
+for(int j = 0; j < 2; j++)
+{
+	for(int i = 0; i < 4; i++)
+	{
+<Entity X={((j % 2 == 0 ? 160 : 0) + (288+(i*320)))} Y={(384+(j*224))} W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+	}
+}
+
+<Entity ModelName='plat' Name='Other' X='72' Y='480' W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+
+<Entity Name='testCase' X='42' Y='240' W='32' H='32'>
+<MyImage>
+<ImageFrames>
+<ImageFrame NameOfTarget='some_thing' DelimitedGrid='FF7F00,FF7F00;FFFF00,FFFF00;FF00FF,FF00FF;'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+
+
+</Entities>
+
+<!-- end scene one -->
+</Scene>
+
+<Scene>
+<!--Scene Two Here-->
+
+<MyAudio>
+<SceneAudio Name='mystr' Notation='AS5_8,RS_8,AS5_8,RS_8;AS4_4,CS4_4,CS4_4,AS4_4' InstrumentIds='33,45' Loop='true' Autoplay='true'>
+</SceneAudio>
+</MyAudio>
+
+<TileGrids>
+<TileGrid SkipDraw='true' X='0' Y='0' TW='128' TH='96' MainGrid='true' DelimitedGrid='0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0;' EntityNameCSVKey='tileExample'>
+</TileGrid>
+</TileGrids>
+<Entities>
+
+
+
+<Entity Name='Other2' X='80' Y='240' W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+
+<!-- I forget if the Write() is fully required or not but it helps with escaping characters iirc -->
+Write("<ColorCycledImage CycleLength='2' Name='someXEntX' NotWorldLevel='true' CSVKey='006FAF,007FCF,008FEF,009FFF' X='900' Y='0' W='224' H='1200' DGridName='StripedImage W=\"32\" H=\"1200\" StripeCt=\"600\" ColorCt=\"4\"' />");
+
+
+for(int j = 0; j < 2; j++)
+{
+	for(int i = 0; i < 8; i++)
+	{
+	
+<Entity X={((j % 2 == 0 ? 160 : 0) + (24+(i*240)))} Y={(480+(j*224))} W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+	
+	}
+}
+
+
+</Entities>
+</Scene>
+
+<!--Scene Three Here-->
+
+<Scene>
+
+<C4ArpeggioAudioBox />
+
+
+<Entities>
+
+<UpdownPlat Name='someUpDown' X='1136' Y='384' W='96' H='32' Speed='2' Cycles='72' />
+
+for(int j = 0; j < 2; j++)
+{
+	for(int i = 0; i < 6; i++)
+	{
+	
+<Entity X={((j % 2 == 0 ? 160 : 0) + (288+(i*240)))} Y={(420+(j*224))} W='128' H='64' MyColor='F00'>
+<MyImage CycleLength='32'>
+<ImageFrames>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='FF0000,00FF00'>
+</ImageFrame>
+<ImageFrame DelimitedGrid='0,0,0,0;1,1,1,1;0,0,0,0;' HexCSVKey='00FF00,FF0000'>
+</ImageFrame>
+</ImageFrames>
+</MyImage>
+</Entity>
+	
+	}
+}
+
+Write("<ColorCycledImage CycleLength='2' Name='someXEntX' NotWorldLevel='true' CSVKey='006FAF,007FCF,008FEF,009FFF' X='900' Y='0' W='224' H='1200' DGridName='StripedImage W=\"32\" H=\"1200\" StripeCt=\"600\" ColorCt=\"4\"' />");
+
+</Entities>
+
+
+</Scene>
+<Scene>
+<!--Scene Four Here-->
+<Entities>
+
+Write("<ColorCycledImage CycleLength='2' Name='someXEntX' NotWorldLevel='true' CSVKey='006FAF,007FCF,008FEF,009FFF' X='900' Y='0' W='224' H='1200' DGridName='StripedImage W=\"32\" H=\"1200\" StripeCt=\"600\" ColorCt=\"4\"' />");
+
+</Entities>
+
+</Scene>
+</Scenes>
+
+<SceneGrids>
+<SceneGrid TargetEntity='JumpMan' DelimitedGrid='0,1;2,3'>
+</SceneGrid>
+</SceneGrids>
+
+</SceneContext>
+</SceneContexts>
+
+</Game>
